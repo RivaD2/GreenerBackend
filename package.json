@@ -4,17 +4,20 @@
   "description": "A server for the game logic and data",
   "main": "index.js",
   "dependencies": {
+    "@code-fellows/supergoose": "^1.0.11",
     "base-64": "^1.0.0",
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jest": "^26.6.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.8"
+    "mongoose": "^5.11.8",
+    "supertest": "^6.0.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose --coverage"
   },
   "repository": {
     "type": "git",

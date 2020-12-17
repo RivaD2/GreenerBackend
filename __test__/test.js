@@ -5,7 +5,6 @@ const collections = require('../lib/collection/collections.js')
 const { server } = require('../lib/server.js');
 const testServer = supergoose(server);
 
-
 describe('testing plants route', ()=> {
   it('should add a plant to the database', ()=>{
     const plant = {
@@ -19,10 +18,14 @@ describe('testing plants route', ()=> {
     };
 
     testServer.post('/api/v1/plants').send(plant).then(results => {
-      console.log(results.status);
      
       expect(results.status).toBe(200);
       expect(results.body.type).toEqual('cactus');
+    })
+  })
+  it('should retrieve plant from the database', ()=>{
+    testServer.get('/api/v1/plants').send().then(results => {
+      console.log(results.body);
     })
   })
 })

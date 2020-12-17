@@ -1,12 +1,10 @@
 'use strict';
 
 const supergoose = require("@code-fellows/supergoose");
-//const { describe } = require("yargs");
 const collections = require('../lib/collection/collections.js')
 const { server } = require('../lib/server.js');
 const testServer = supergoose(server);
 let plantId = '';
-let terrariumId = '';
 describe('testing plants route', ()=> {
   it('should add a plant to the database', ()=>{
     const plant = {
@@ -43,14 +41,12 @@ describe('testing plants route', ()=> {
       cost: 100
     };
     return testServer.put(`/api/v1/plants/${plantId}`).send(updated).then(res => {
-      console.log(res.body)
       expect(res.body.type).toEqual('four leaf clover');
       expect(res.status).toEqual(200);
     })
   })
   it('can delete the plant from the db', () => {
     return testServer.delete(`/api/v1/plants/${plantId}`).then(res => {
-      console.log(res.body)
       expect(res.status).toEqual(200);
     })
   })

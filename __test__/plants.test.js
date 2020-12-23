@@ -25,8 +25,8 @@ describe('testing plants route', ()=> {
   })
   it('should retrieve plant from the database', ()=>{
     return testServer.get('/api/v1/plants').send().then(results => {
-      plantId = results.body[0]._id
-      expect(results.body[0].type).toEqual('cactus');
+      plantId = results.body._id
+      expect(results.body.type).toEqual('cactus');
       expect(results.status).toEqual(200);
     })
   })

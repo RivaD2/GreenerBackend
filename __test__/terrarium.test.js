@@ -22,7 +22,7 @@ describe('testing terrarium route and db', () => {
     })
     it('should get terrariums from db', () => {
         return testServer.get('/api/v1/terrariums').then(results => {
-            expect(results.body[0].plotSize).toEqual(3);
+            expect(results.body.plotSize).toEqual(3);
             expect(results.status).toEqual(200);
         })
     })

@@ -22,8 +22,8 @@ describe('testing shop route and db', () => {
     })
     it('should get shop from db', () => {
         return testServer.get('/api/v1/shop').then(results => {
-            shopId = results.body[0]._id;
-            expect(results.body[0].type).toEqual('stuff');
+            shopId = results.body._id;
+            expect(results.body.type).toEqual('stuff');
             expect(results.status).toEqual(200);
         })
     })

@@ -20,8 +20,8 @@ describe('testing userPlants route and db', () => {
     })
     it('should get userPlants from db', () => {
         return testServer.get('/api/v1/user-plants').then(results => {
-            userPlantsId = results.body[0]._id;
-            expect(results.body[0].userID).toEqual('wetgsea');
+            userPlantsId = results.body._id;
+            expect(results.body.userID).toEqual('wetgsea');
             expect(results.status).toEqual(200);
         })
     })

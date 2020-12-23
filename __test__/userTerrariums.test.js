@@ -20,8 +20,8 @@ describe('testing userTerrariums route and db', () => {
     })
     it('should get userTerrariums from db', () => {
         return testServer.get('/api/v1/user-terrariums').then(results => {
-            userTerrariumsId = results.body[0]._id;
-            expect(results.body[0].userID).toEqual('hrgsr');
+            userTerrariumsId = results.body._id;
+            expect(results.body.userID).toEqual('hrgsr');
             expect(results.status).toEqual(200);
         })
     })
